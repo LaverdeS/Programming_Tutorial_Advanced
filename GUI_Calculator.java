@@ -4,13 +4,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.util.ArrayList;
 
-public class Example extends JFrame {
+public class GUI_Calculator extends JFrame {
 
 
-    public Example(){
+    public GUI_Calculator (){
         initUI();
     }
-//As attributes for the class
+
     private JButton quitButton;
     private JButton testButton;
     private JPanel pane;
@@ -43,9 +43,9 @@ public class Example extends JFrame {
 
         setTitle("Simple example");
 
-        createFlowLayout(); //The text reaccomodates to the window size
+        createFlowLayout();
         //uncomment for group layout
-        //createGroupLayout //I think the window reacommodates to the elements and I have an horizontal and vert group.
+        //createGroupLayout
 
         //setSize(300,200);
 
@@ -57,7 +57,7 @@ public class Example extends JFrame {
 
     private void createGroupLayout (){
         //create and set pane. Children can be placed in a pane of a JFrame (to make Button visible)
-        pane = (JPanel) getContentPane(); //Its the panel like the background where all the elements are going to be
+        pane = (JPanel) getContentPane();
         gl = new GroupLayout(pane);
         pane.setLayout(gl);
 
@@ -65,7 +65,7 @@ public class Example extends JFrame {
         pane.setToolTipText("This is a content pane");
 
         //gaps between components for design reasons
-        gl.setAutoCreateContainerGaps(true); //Sets gras between the elements
+        gl.setAutoCreateContainerGaps(true);
         gl.setAutoCreateGaps(true);
 
         //layout for each dimension
@@ -73,7 +73,7 @@ public class Example extends JFrame {
                                                         .addComponent(testButton)
                                                         .addGroup(gl.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                             .addComponent(ta)
-                                                            .addComponent(quitButton))); //I could also add_Gap(number) between methods
+                                                            .addComponent(quitButton)));
 
         gl.setVerticalGroup(gl.createSequentialGroup().addGroup(gl.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                     .addComponent(tf)
@@ -101,9 +101,9 @@ public class Example extends JFrame {
     }
 
     public static void main(String[] args){
-        //places the application on the Swing Event Queue such that all UI updates are concurrency-safe --Swing is the Java library provinding GUI and methods...
+        //places the application on the Swing Event Queue such that all UI updates are concurrency-safe
         EventQueue.invokeLater(() ->{
-            Example ex = new Example();
+            GUI_Calculator  ex = new GUI_Calculator ();
             ex.setVisible(true);
         });
     }
